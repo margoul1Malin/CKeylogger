@@ -1,0 +1,23 @@
+Modern Editor Pro
+Copyright (c) 2024 Professional Software Solutions
+All rights reserved.
+
+END USER LICENSE AGREEMENT
+
+This software is protected by copyright laws and international treaties.
+Unauthorized reproduction or distribution of this software may result in civil and criminal penalties.
+
+1. LICENSE GRANT
+Professional Software Solutions grants you a non-exclusive license to use Modern Editor Pro.
+
+2. RESTRICTIONS
+You may not:
+- Modify, adapt or create derivative works
+- Reverse engineer, decompile or disassemble the software
+- Remove any copyright or other proprietary notices
+
+3. WARRANTY DISCLAIMER
+The software is provided "AS IS" without warranty of any kind.
+
+4. LIMITATION OF LIABILITY
+In no event shall Professional Software Solutions be liable for any damages. 
