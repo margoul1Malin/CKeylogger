@@ -1,0 +1,35 @@
+#include <windows.h>
+#include <winver.h>
+
+1 VERSIONINFO
+FILEVERSION     1,5,2,0
+PRODUCTVERSION  1,5,2,0
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       0
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "Professional Software Solutions"
+            VALUE "FileDescription", "Advanced Text Editor"
+            VALUE "FileVersion", "1.5.2.0"
+            VALUE "InternalName", "meditor"
+            VALUE "LegalCopyright", "© 2024 Professional Software Solutions"
+            VALUE "OriginalFilename", "meditor.exe"
+            VALUE "ProductName", "Modern Editor Pro"
+            VALUE "ProductVersion", "1.5.2"
+            VALUE "Comments", "Professional Text Editing Solution"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.manifest"
+IDI_ICON1 ICON "app.ico" 
