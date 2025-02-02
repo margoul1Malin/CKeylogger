@@ -5,6 +5,17 @@ Un keylogger avancé pour Linux avec support AZERTY/QWERTY et détection des fen
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+## 📑 Sommaire
+- [Fonctionnalités](#-fonctionnalités)
+- [Installation](#-installation)
+  - [Prérequis](#prérequis)
+  - [Compilation](#compilation)
+- [Utilisation](#-utilisation)
+- [Configuration](#️-configuration)
+- [Sécurité](#-sécurité)
+- [Contribution](#-contribution)
+- [Dépendances](#️-dépendances)
+
 ## 📋 Fonctionnalités
 
 - Détection automatique de la disposition du clavier (AZERTY/QWERTY)
