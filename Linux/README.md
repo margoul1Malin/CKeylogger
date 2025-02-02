@@ -32,7 +32,8 @@ bash
 
 ## 💡 Utilisation
 
-```bash sudo ./keylogger```
+```bash ```
+    ```sudo ./keylogger```
 
 Le programme créera un fichier `log.txt` qui contiendra :
 - Les touches pressées
