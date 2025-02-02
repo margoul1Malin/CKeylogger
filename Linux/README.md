@@ -30,7 +30,7 @@ Un keylogger avancé pour Linux avec support AZERTY/QWERTY et détection des fen
 
 ## 💡 Utilisation
 ```./keylogger```  
-Normalement ca n'est pas nécessaire mais si jamais ça vous génère une erreur de permission :  
+> En cas d'erreur permissives  
 `chmod +x ./keylogger`
 
 Le programme créera un fichier `log.txt` qui contiendra :
