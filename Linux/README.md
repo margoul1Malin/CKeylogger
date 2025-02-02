@@ -32,8 +32,7 @@ bash
 
 ## 💡 Utilisation
 
-bash
-`sudo ./keylogger`
+```bash sudo ./keylogger```
 
 Le programme créera un fichier `log.txt` qui contiendra :
 - Les touches pressées
@@ -57,10 +56,6 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 - Signaler des bugs
 - Proposer des améliorations
 - Soumettre des pull requests
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ## 🛠️ Dépendances
 
