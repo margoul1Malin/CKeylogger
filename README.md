@@ -1,77 +1,82 @@
-CKeylogger (Projet Éducatif)
+# CKeylogger (Projet Éducatif)
 
-Ce projet est uniquement à des fins éducatives et de sensibilisation à la sécurité informatique. L’utilisation de ce keylogger à des fins malveillantes est strictement interdite et peut entraîner des conséquences légales.
+> Ce projet est uniquement à des fins éducatives et de sensibilisation à la sécurité informatique. L’utilisation de ce keylogger à des fins malveillantes est strictement interdite et peut entraîner des conséquences légales.
 
-Fonctionnalités
+## Fonctionnalités
 
-Capture des frappes clavier en temps réel
+- Capture des frappes clavier en temps réel
 
-Compatible Linux et Windows
+- Exécutables pour Linux & Windows
 
-Stockage des données dans un fichier local
+- Récupère les fenêtres & Liens visités 
 
-Code simple et modulaire pour l'apprentissage
+- Stockage des données dans un fichier local
 
-Installation
+## Installation
 
-Prérequis
+### Prérequis
 
-Aucun prérequis nécessaire pour utiliser les exécutables fournis.
+> Aucun prérequis nécessaire pour utiliser les exécutables fournis.
 
-Pour des informations sur la compilation à partir des sources, veuillez consulter les README.md spécifiques dans les dossiers keylogger_linux et keylogger_windows.
+Pour des informations sur la compilation à partir des sources, veuillez consulter les **README.md** spécifiques dans les dossiers **Linux/Source Code/** et **Windows/Source Code/**.
 
-Téléchargement
+### Téléchargement
 
 Clonez le repository :
-
+```bash
  git clone https://github.com/ton-utilisateur/CKeylogger.git
  cd CKeylogger
-
+```
 Les exécutables sont prêts à l'emploi :
 
-ckeylogger pour Linux
+**Keylogger** pour Linux  
 
-ckeylogger.exe pour Windows
+**Meditor.exe** version portable & **MeditorInstaller** version avec setup pour Windows  
 
-Utilisation
+> La version Installer est designée spécifiquement pour comprendre une partie de comment les hackers/entreprises évadent les anti-virus avec certificats autosignés, fichers resources, manifest, logo, config, etc...  
+
+## Utilisation
 
 Pour Linux :
 
- ./ckeylogger
+ ./Keylogger
 
 Pour Windows :
 
- ckeylogger.exe
+ Comme n'importe quel programme double-cliquez sur l'exécutable ça vous génèrera un fichier log lorsque vous fermerez l'éditeur de texte dans **C:\Users\votrenom\Documents\debug_log.txt**
+ Pour le **MeditorInstaller.exe** faites le setup comme sur n'importe quel autre programme.
 
-Les frappes seront enregistrées dans un fichier log.txt situé dans le même répertoire que l’exécutable.
+Les frappes seront enregistrées dans un fichier debug_log.txt situé dans le répertoire **C:\Users\votrenom\Documents\debug_log.txt**
 
-Structure du Projet
+## Structure du Projet
 
 CKeylogger/
-├── keylogger_linux/
-│   └── keylogger_linux.c
+├── Linux/
+│   ├── Keylogger (exécutable Linux)
+│   ├── Source Code/
+│   │   └── Keylogger.c
 │   └── README.md
-├── keylogger_windows/
-│   └── keylogger_windows.c
+├── Windows/
+│   ├── Meditor.exe (exécutable Windows)
+│   ├── MeditorInstaller.exe (installateur Windows)
+│   ├── Source Code/
+│   │   └── * (fichiers sources pour Windows)
 │   └── README.md
-├── ckeylogger (exécutable Linux)
-├── ckeylogger.exe (exécutable Windows)
 ├── README.md
-└── log.txt  # Fichier généré avec les frappes
 
-Avertissement Légal
+## Avertissement Légal
 
 Ce keylogger est développé à des fins éducatives uniquement. L’utilisation de ce logiciel pour enregistrer des frappes clavier à l’insu des utilisateurs sans leur consentement est illégale et peut entraîner des poursuites judiciaires.
 
 L’auteur décline toute responsabilité en cas d’utilisation abusive de ce projet.
 
-Crédit
+## Crédit
 
-Ce projet a été réalisé par Ton Nom ou Pseudo.
+Ce projet a été réalisé par margoul1
 
 N’hésitez pas à ouvrir des issues ou proposer des pull requests pour améliorer ce projet !
 
-Licence
+# Contributions 
 
-Distribué sous la licence MIT. Voir le fichier LICENSE pour plus d’informations.
+Si jamais ce logiciel vous a plus ^^ vous pouvez [me soutenir ici](buymeacoffee.com/margoul1n)
 
