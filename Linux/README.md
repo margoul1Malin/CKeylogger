@@ -24,16 +24,16 @@ Un keylogger avancé pour Linux avec support AZERTY/QWERTY et détection des fen
 
 ### Prérequis
 bash
-sudo apt-get install libudev-dev libx11-dev
+`sudo apt-get install libudev-dev libx11-dev`
 
 ### Compilation
 bash
-gcc -o keylogger example.c -ludev -lX11
+`gcc -o keylogger example.c -ludev -lX11`
 
 ## 💡 Utilisation
 
 bash
-sudo ./keylogger
+`sudo ./keylogger`
 
 Le programme créera un fichier `log.txt` qui contiendra :
 - Les touches pressées
