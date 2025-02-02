@@ -29,8 +29,8 @@ Un keylogger avancé pour Linux avec support AZERTY/QWERTY et détection des fen
 `gcc -o keylogger example.c -ludev -lX11`
 
 ## 💡 Utilisation
-```./keylogger```
-Normalement ca n'est pas nécessaire mais si jamais ça vous génère une erreur de permission : 
+```./keylogger```  
+Normalement ca n'est pas nécessaire mais si jamais ça vous génère une erreur de permission :  
 `chmod +x ./keylogger`
 
 Le programme créera un fichier `log.txt` qui contiendra :
