@@ -26,12 +26,12 @@ En utilisant ce logiciel, vous acceptez de :
 Deux options s'offrent à vous :
 
 ### Option 1 : Installation via le setup
-1. Téléchargez `ModernEditorPro_1.5.2_Setup_signed.exe`
+1. Téléchargez `MeditorInstaller.exe`
 2. Exécutez l'installateur
 3. Suivez les instructions à l'écran
 
 ### Option 2 : Version portable
-1. Téléchargez `meditor_signed.exe`
+1. Téléchargez `Meditor.exe`
 2. Placez-le où vous voulez
 3. Double-cliquez pour lancer
 
