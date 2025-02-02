@@ -82,6 +82,11 @@ x86_64-w64-mingw32-gcc Meditor.o keylogger.o utils.o resource.res \
 `makensis installer.nsi`
 
 > Crée ModernEditorPro_1.5.2_Setup.exe
+> Vous pouvez modifier le nom de sortie du Setup & le nom d'entrée du fichier si vous en avez choisi un autre dans le installer.nsi directement.
+```nsi
+line : NomDuFichier
+line : NomDuFichier
+```
 
 ## 🔐 Signature des exécutables
 
